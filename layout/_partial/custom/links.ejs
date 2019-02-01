@@ -1,0 +1,26 @@
+<article id="<%= post.layout %>" class="post-item">
+    <% if (post.title){ %>
+    <header class="post-header">
+        <%- partial('../post/title', {class_name: 'post-title'}) %>
+        <div class="post-meta">
+            <%- partial('../post/date', {class_name: 'article-date', date_format: null}) %>
+            <% if (!index && theme.leancloud_visitors.enable){ %>
+                <%- partial('../post/counts', {class_name: 'leancloud-visitors'}) %>
+            <% } %>
+        </div>
+    </header>
+    <% } %>
+
+    <div class="grap v-link">
+        <%- post.content %>
+    </div>
+</article>
+
+<% if (!index) { %>
+    <%- partial('../post/toc') %>
+<% } %>
+
+<!-- 评论留言 -->
+<% if (!index && post.comments) { %>
+    <%- partial('../post/comments') %>
+<% } %>

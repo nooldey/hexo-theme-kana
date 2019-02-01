@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%
+  var title = page.title;
+  if (is_archive()){
+    title = 'Archives';
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Category: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+  }
+  var finaltitle = null;
+  if (title) {
+    finaltitle = title + " | " + config.title;
+  } else {
+    finaltitle = config.title + " - " + config.subtitle;
+  }
+  %>
+  <title><%= finaltitle %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="<%= theme.keywords %>,<%= title %>">
+  <meta name="description" content="<%= config.description %>">
+  <link rel="icon" href="<%= config.root %>img/favicon.ico">
+  <%- css('css/main') %>
+  <% if ( (is_post() || is_page()) && config.highlight.enable){ %>
+  <%- css('css/highlight') %>
+  <% } %>
+</head>

@@ -1,0 +1,45 @@
+<footer class="site-footer">
+	<% var current = date(Date.now(),"YYYY") %>
+	<p>
+		&copy;
+		<a href="<%= config.url %>" class="logo">
+			<%= config.title %>
+		</a>
+		&nbsp;
+		<%= theme.since %>&nbsp;-&nbsp;<%= current %>
+	</p>
+	<p>
+		<svg class="icon icon-heart">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
+		</svg>
+		&nbsp;
+		Theme:<a href="https://fatesinger.com" target="_blank" title="Hexo 主题 kana">Kana</a>.
+		&nbsp;
+		<% if (theme.tongji.baidu) { %>
+			<a href="https://tongji.baidu.com/web/welcome/ico?s=<%= theme.tongji.baidu %>" target="_blank" rel="external nofollow">访问统计</a>
+		<% } %>
+	</p>
+	<p>
+		<% for (var i in theme.footLinks){ %>
+			<a href="<%= theme.footLinks[i] %>" target="_blank" class="ftsp"><%= i %></a>
+		<% } %>
+	</p>
+	<%- partial('third-part/time') %>
+</footer>
+<%- js('js/app') %>
+<% if ( (is_post() || is_page()) && theme.leancloud_visitors.enable){ %>
+	<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <%- js('js/leancloud') %>
+<% } %>
+<!-- Baidu Tongji-->
+<% if (theme.tongji.baidu) { %>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?<%= theme.tongji.baidu %>";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+<% } %>

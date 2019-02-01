@@ -1,0 +1,67 @@
+<% if (theme.social_comment) { %>
+    <div id="comments">
+        <!-- 来必力 -->
+        <% if (theme.social_comment == 'livere' && theme.livere_uid) { %>
+            <div id="lv-container" data-id="city" data-uid="<%= theme.livere_uid %>">
+                <script type="text/javascript">
+                    (function (d, s) {
+                        var j, e = d.getElementsByTagName(s)[0];
+                        if (typeof LivereTower === 'function') {
+                            return;
+                        }
+                        j = d.createElement(s);
+                        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                        j.async = true;
+                        e.parentNode.insertBefore(j, e);
+                    })(document, 'script');
+                </script>
+            </div>
+        <% } else if (theme.social_comment == 'issues') { %>
+            <div id="issues"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+                var gitment = new Gitment({
+                    id: '<%- url_for(post.path) %>', // 可选。默认为 location.href
+                    owner: 'nooldey',
+                    repo: 'blog-comments',
+                    oauth: {
+                        client_id: '2175e96bf1778b0e1969',
+                        client_secret: 'b696be3126f6a6364c6fb6adffd398c075e14b07',
+                    },
+                })
+                gitment.render('issues')
+            </script>
+        <% } else if (theme.social_comment == 'hyper') { %>
+            <div id="hypercomments_widget"></div>
+            <script type="text/javascript">
+                _hcwp = window._hcwp || [];
+                _hcwp.push({widget:"Stream", widget_id: "<%= theme.hyper_id %>"});
+                (function() {
+                if("HC_LOAD_INIT" in window)return;
+                HC_LOAD_INIT = true;
+                var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+                var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+                hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/<%= theme.hyper_id %>/"+lang+"/widget.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hcc, s.nextSibling);
+                })();
+            </script>
+        <% } else if (theme.social_comment == 'valine') { %>
+            <div id="valine_widget"></div>
+            <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+            <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+            <script>
+                new Valine({
+                    el: '#valine_widget',
+                    appId: '<%= theme.leancloud_comments.app_id %>',
+                    appKey: '<%= theme.leancloud_comments.app_key %>',
+                    path: '<%- url_for(post.path) %>',
+                    placeholder: '骚年，不来一发吗？'
+                })
+            </script>
+        <% } %>
+        <!-- 禁用提示 -->
+        <noscript> 哎呀，评论功能被禁用了，快启用JavaScript恢复吧！ </noscript>
+    </div>
+<% } %>

@@ -1,0 +1,43 @@
+<div class="go">
+	<section class="grap">
+		<p>即将跳转到站外的链接地址，确认跳转请点击下方按钮，否则请关闭本页面，谢谢！</p>
+		<a class="goLink" rel="nofollow external" target="_blank">点击跳转</a>
+		<%- post.content %>
+	</section>
+</div>
+<script>
+!function(){
+    var k = window.location.href.match(/\?id=[^&]+/)[0].split('=')[1];
+    var arr = JSON.parse('<%- JSON.stringify(site.data.go) %>');
+    var e = document.getElementsByClassName('goLink')[0];
+    if (arr[k]) {
+        e.href = arr[k];
+    } else {
+        e.href = "/404";
+    }
+    setTimeout(function(){
+        window.open(e.href)
+        // location.href = e.href
+        // location.reload()
+    },500)
+    /* 禁止右键复制粘贴 */
+    document.oncontextmenu = function(){return false;}
+    document.onselectstart = function(){return false;}
+    function key(e) {
+        var keyCode;
+        if (window.event) {
+            keyCode = e.keyCode;
+        } else if (e.which) {
+            keyCode = e.which;
+        }
+        //此处填写后续条件
+        if([112,113,114,115,117,118,119,120,121,122,123,17,16].indexOf(keyCode) > -1){
+            console.log("别再按了，你节操碎了！");
+            return false;
+        }
+    }
+    document.onkeydown = function(){
+        return key(arguments[0])
+    }
+}()
+</script>

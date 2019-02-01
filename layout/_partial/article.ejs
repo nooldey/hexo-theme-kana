@@ -1,0 +1,42 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="post-item">
+    <% if (post.title){ %>
+    <header class="post-header">
+        <%- partial('post/title', {class_name: 'post-title'}) %>
+        <div class="post-meta">
+            <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+            <% if (!index && theme.leancloud_visitors.enable){ %>
+                <%- partial('post/counts', {class_name: 'leancloud-visitors'}) %>
+            <% } %>
+        </div>
+    </header>
+    <% } %>
+
+    <div class="grap">
+        <%- post.content %>
+    </div>
+
+    <% if (post.tags && post.tags.length){ %>
+        <%- list_tags(post.tags, {
+            show_count: false,
+            class: 'article-tag'
+        }) %>
+    <% } %>
+    
+    <% if (theme.adsense && !post.pure) {%>
+        <%- partial('post/sponsor') %>
+    <% } %>
+</article>
+
+<% if (!single) { %>
+    <%- partial('post/author') %>
+<% } %>
+
+<!-- 目录 -->
+<% if (!index && post.toc) { %>
+    <%- partial('post/toc') %>
+<% } %>
+
+<!-- 评论留言 -->
+<% if (!index && post.comments) { %>
+    <%- partial('post/comments') %>
+<% } %>
