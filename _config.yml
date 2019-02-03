@@ -23,6 +23,11 @@ social_comment: issues
 # comment accounts
 livere_uid: XXX
 hyper_id: XXX
+issues:
+  owner: xx
+  repo: xxx
+  client_id: xxx
+  client_secret: xxx
 
 # Third part visitors
 # switch

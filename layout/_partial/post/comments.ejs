@@ -23,11 +23,11 @@
             <script>
                 var gitment = new Gitment({
                     id: '<%- url_for(post.path) %>', // 可选。默认为 location.href
-                    owner: 'nooldey',
-                    repo: 'blog-comments',
+                    owner: '<%= theme.issues.owner %>',
+                    repo: '<%= theme.issues.repo %>',
                     oauth: {
-                        client_id: '2175e96bf1778b0e1969',
-                        client_secret: 'b696be3126f6a6364c6fb6adffd398c075e14b07',
+                        client_id: '<%= theme.issues.client_id %>',
+                        client_secret: '<%= theme.issues.client_secret %>',
                     },
                 })
                 gitment.render('issues')
