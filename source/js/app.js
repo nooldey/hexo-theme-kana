@@ -28,13 +28,3 @@
         $body.className += ' ' + os;
     }
 }();
-
-/* toc切换 */
-!function toc() {
-    var toc = document.body.querySelector('#toc') || document.getElementById('toc');
-    if (!toc) return;
-    var btn = toc.querySelector('.toc-btn') || document.body.getElementsByClassName('toc-btn')[0];
-    btn.onclick = function() {
-        toc.classList.toggle('show');
-    }
-}();
