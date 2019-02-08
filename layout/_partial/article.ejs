@@ -22,7 +22,7 @@
         }) %>
     <% } %>
     
-    <% if (theme.adsense && !post.pure) {%>
+    <% if (theme.sponsor.enable && !post.pure) {%>
         <%- partial('post/sponsor') %>
     <% } %>
 </article>
