@@ -20,24 +20,5 @@
         // location.href = e.href
         // location.reload()
     },500)
-    /* 禁止右键复制粘贴 */
-    document.oncontextmenu = function(){return false;}
-    document.onselectstart = function(){return false;}
-    function key(e) {
-        var keyCode;
-        if (window.event) {
-            keyCode = e.keyCode;
-        } else if (e.which) {
-            keyCode = e.which;
-        }
-        //此处填写后续条件
-        if([112,113,114,115,117,118,119,120,121,122,123,17,16].indexOf(keyCode) > -1){
-            console.log("别再按了，你节操碎了！");
-            return false;
-        }
-    }
-    document.onkeydown = function(){
-        return key(arguments[0])
-    }
 }()
 </script>
