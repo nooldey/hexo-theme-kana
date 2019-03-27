@@ -32,7 +32,7 @@
   <% if ( (is_post() || is_page()) && config.highlight.enable){ %>
   <%- css('css/highlight') %>
   <% } %>
-  <% if (theme.customer.head) { %>
+  <% if (theme.customer && theme.customer.head) { %>
   <%- theme.customer.head %>
   <% } %>
 </head>
