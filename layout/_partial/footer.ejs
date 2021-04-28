@@ -1,5 +1,8 @@
 <footer class="site-footer">
-	<% var current = date(Date.now(),"YYYY") %>
+	<%
+		var current = date(Date.now(),"YYYY");
+		var latestUpdate = date(Date.now(),"YYYY-MM-DD hh:mm:ss")
+	 %>
 	<p>
 		&copy;
 		<a href="<%= config.url %>" class="logo">
@@ -23,6 +26,9 @@
 		<% for (var i in theme.footLinks){ %>
 			<a href="<%= theme.footLinks[i] %>" target="_blank" class="ftsp"><%= i %></a>
 		<% } %>
+	</p>
+	<p>
+		最后更新：<%= latestUpdate %>
 	</p>
 	<%- partial('third-part/time') %>
 </footer>
