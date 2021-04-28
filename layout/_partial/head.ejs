@@ -22,12 +22,14 @@
   } else {
     finaltitle = config.title + " - " + config.subtitle;
   }
+  var time = new Date();
+  var timestamp = time.getTime();
   %>
   <title><%= finaltitle %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="<%= theme.keywords %>,<%= title %>">
   <meta name="description" content="<%= config.description %>">
-  <meta name="version" content="<%= new Date().toLocalDateString() %>">
+  <meta name="version" content="<%= timestamp %>">
   <link rel="icon" href="<%= config.root %>img/favicon.ico">
   <%- css('css/main') %>
   <% if ( (is_post() || is_page()) && config.highlight.enable){ %>
