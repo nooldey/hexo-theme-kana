@@ -4,12 +4,11 @@
 		var latestUpdate = date(Date.now(),"YYYY-MM-DD HH:mm:ss")
 	 %>
 	<p>
-		&copy;
+		<span>&copy;<%= current %></span>
 		<a href="<%= config.url %>" class="logo">
 			<%= config.title %>
 		</a>
-		&nbsp;
-		<%= theme.since %>&nbsp;-&nbsp;<%= current %>
+		<span>Since <%= theme.since %></span>
 	</p>
 	<p>
 		<svg class="icon icon-heart">
@@ -21,9 +20,9 @@
 		<% if (theme.tongji.baidu) { %>
 			<a href="https://tongji.baidu.com/web/welcome/ico?s=<%= theme.tongji.baidu %>" target="_blank" rel="external nofollow">访问统计</a>
 		<% } %>
-		<span>
-			最后更新：<%= latestUpdate %>
-		</span>
+	</p>
+	<p>
+		最后更新：<%= latestUpdate %>
 	</p>
 	<p>
 		<% for (var i in theme.footLinks){ %>
