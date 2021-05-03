@@ -4,11 +4,10 @@
 		var latestUpdate = date(Date.now(),"YYYY-MM-DD HH:mm:ss")
 	 %>
 	<p>
-		<span>&copy;<%= current %></span>
+		<span>&copy;<%= theme.since %> - <%= current %></span>
 		<a href="<%= config.url %>" class="logo">
 			<%= config.title %>
 		</a>
-		<span>Since <%= theme.since %></span>
 	</p>
 	<p>
 		<svg class="icon icon-heart">
