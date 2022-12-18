@@ -9,7 +9,7 @@
 !function(){
     var k = window.location.href.match(/\?id=[^&]+/)[0].split('=')[1];
     var arr = JSON.parse('<%- JSON.stringify(site.data.go) %>');
-    var e = document.getElementsByClassName('goLink')[0];
+    var e = document.querySelector('.goLink');
     if (arr[k]) {
         e.href = arr[k];
     } else {

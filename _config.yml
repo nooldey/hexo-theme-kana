@@ -7,50 +7,38 @@ links:
   heart: /自定义路径
 
 # Site Info
-keywords: 这里是站点关键字，多个用英文逗号隔开
-description: 这里是网站描述
+signature: 这里是作者描述
 since: 建站初始时间，如：2010
 
 # Layout config
 avatar: true
-animation: false
+animation: true
 
 # Third part comments
 # total switch
 # 关闭评论，设置为false
-# 开启评论，设置为指定评论名： 来必力-livere GITHUB-issues Hyper评论-hyper Valine-valine
+# 开启评论，设置为指定评论名： GITHUB-issues Hyper评论-hyper
 social_comment: issues
 # comment accounts
-livere_uid: XXX
-hyper_id: XXX
+hyper_id: ''
 issues:
-  owner: xx
-  repo: xxx
-  client_id: xxx
-  client_secret: xxx
-
-# Third part visitors
-# switch
-
-leancloud_visitors:
-  enable: true
-  app_id: XXX
-  app_key: XXX
-
-leancloud_comments:
-  app_id: XXX
-  app_key: XXX
-
-tongji:
-  baidu: XXX
+  owner: ''
+  repo: ''
+  client_id: ''
+  client_secret: ''
 
 # sponser
 
 sponsor:
-  enable: true
-  code: <a href="http://xxx.com/cxxx">advertisement</a>
+  enable: false
+  code: ''
+
 footLinks:
-  Vultr限时送$50美金!: https://www.vultr.com/?ref=7782144-4F
-  
+
+# extend head code(script Or style)
 customer:
-  head: xxx
+  headCode: ''
+
+# special style
+styles:
+  gray: false

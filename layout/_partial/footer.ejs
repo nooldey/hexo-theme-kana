@@ -1,49 +1,36 @@
-<footer class="site-footer">
-	<%
-		var current = date(Date.now(),"YYYY");
-		var latestUpdate = date(Date.now(),"YYYY-MM-DD HH:mm:ss")
-	 %>
-	<p>
-		<span>&copy;<%= theme.since %> - <%= current %></span>
-		<a href="<%= config.url %>" class="logo">
-			<%= config.title %>
-		</a>
-	</p>
-	<p>
-		<svg class="icon icon-heart">
-			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
-		</svg>
-		&nbsp;
-		Theme:<a href="https://fatesinger.com" target="_blank" title="Hexo 主题 kana">Kana</a>.
-		&nbsp;
-		<% if (theme.tongji.baidu) { %>
-			<a href="https://tongji.baidu.com/web/welcome/ico?s=<%= theme.tongji.baidu %>" target="_blank" rel="external nofollow">访问统计</a>
-		<% } %>
-	</p>
-	<p>
-		最后更新：<%= latestUpdate %>
-	</p>
-	<p>
-		<% for (var i in theme.footLinks){ %>
-			<a href="<%= theme.footLinks[i] %>" target="_blank" class="ftsp"><%= i %></a>
-		<% } %>
-	</p>
-	<%- partial('third-part/time') %>
-</footer>
-<%- js('js/app') %>
-<% if ( (is_post() || is_page()) && theme.leancloud_visitors.enable){ %>
-	<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <%- js('js/leancloud') %>
-<% } %>
-<!-- Baidu Tongji-->
-<% if (theme.tongji.baidu) { %>
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	var hm = document.createElement("script");
-	hm.src = "https://hm.baidu.com/hm.js?<%= theme.tongji.baidu %>";
-	var s = document.getElementsByTagName("script")[0]; 
-	s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-<% } %>
+<% var current=date(Date.now(),"YYYY"); var latestUpdate=date(Date.now(),"YYYY-MM-DD HH:mm:ss"); %>
+	<footer class="site-footer">
+		<div class="footer-info">
+			<p>
+				<a href="<%= config.url %>" class="logo">
+					<%= config.title %>
+				</a>
+				<span>&copy;<%= theme.since %> - <%= current %></span>
+			</p>
+			<p>
+				<svg class="icon icon-heart">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
+				</svg>
+				<a href="https://fatesinger.com" target="_blank" title="Hexo 主题 kana">Theme:Kana</a>.
+			</p>
+		</div>
+
+		<div>
+			<svg class="icon icon-deploy">
+				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-deploy"></use>
+			</svg>
+			&nbsp;
+			<%= latestUpdate %>
+		</div>
+
+		<div>
+			友情链接：
+			<% for (var i in theme.footLinks){ %>
+				<a href="<%= theme.footLinks[i] %>" target="_blank" class="ftsp">
+					<%= i %>
+				</a>
+				<% } %>
+		</div>
+		<%- partial('third-part/time') %>
+	</footer>
+	<%- js('js/app') %>

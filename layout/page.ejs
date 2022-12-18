@@ -2,8 +2,6 @@
 <%- partial('_partial/template/category', {}) %>
 <% } else if (page.type == 'tags') {%>
 <%- partial('_partial/template/tags', {}) %>
-<% } else if (page.type == 'resume') {%>
-<%- partial('_partial/custom/resume', {post: page}) %>
 <% } else if (page.type == 'go') {%>
 <%- partial('_partial/custom/go', {post: page}) %>
 <% } else if (page.type == 'links') {%>

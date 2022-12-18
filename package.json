@@ -1,0 +1,15 @@
+{
+  "name": "hexo-theme-kana",
+  "version": "0.0.3",
+  "description": "Hexo Theme kana",
+  "repository": "hexojs/hexo-theme-kana",
+  "keywords": [
+    "hexo",
+    "theme",
+    "kana"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "hexo-renderer-less": "^4.0.0"
+  }
+}

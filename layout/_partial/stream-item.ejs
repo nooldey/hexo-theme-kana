@@ -3,9 +3,9 @@
         <h2 class="stream-item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
         <div class="stream-item-snipper"><%- post.excerpt %></div>
         <div class="stream-item-meta">
-            In <% post.categories.each(function(category){ %>
+            <% post.categories.each(function(category){ %>
             <a href="<%= url_for(category.path) %>"><%= category.name %></a>
-            <% }) %>, 
+            <% }) %> · 
             <time><%= date(post.date, null) %></time>
         </div>
     </div>
