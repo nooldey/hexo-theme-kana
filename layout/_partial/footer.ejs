@@ -23,12 +23,14 @@
 		</div>
 		
 		<div>
-			友情链接：
-			<% for (var i in theme.footLinks){ %>
-				<a href="<%= theme.footLinks[i] %>" target="_blank" class="ftsp">
-					<%= i %>
-				</a>
+			<% if (theme.footLinks.length) {
+				友情链接：
+				<% for (var i in theme.footLinks){ %>
+					<a href="<%= theme.footLinks[i] %>" target="_blank" class="ftsp">
+						<%= i %>
+					</a>
 				<% } %>
+			} %>
 		</div>
 		<%- partial('third-part/time') %>
 	</footer>
